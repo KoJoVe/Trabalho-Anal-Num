@@ -4,6 +4,7 @@
 //
 //  Created by Joao Nassar Galante Guedes on 11/11/15.
 //  Copyright © 2015 Joao e Coutinho. All rights reserved.
+//  Teste de Commit
 //
 
 #ifndef Matrix_hpp
@@ -15,12 +16,12 @@ class Matrix
 {
     
 public:
-    ~Matrix ();
+    virtual ~Matrix ();
     Matrix (size_t n);
     Matrix (size_t n, size_t m);
     
 private:
-    void bananas() const;
+    virtual void bananas() const;
     
 };
 
