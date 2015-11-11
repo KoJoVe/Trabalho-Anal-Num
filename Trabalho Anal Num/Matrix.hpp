@@ -10,15 +10,19 @@
 #ifndef Matrix_hpp
 #define Matrix_hpp
 
-#include <stdio.h>
+#include <iostream>
 
 class Matrix
 {
-    
 public:
-    virtual ~Matrix ();
+    // Constructors & Deconstructors
     Matrix (size_t n);
     Matrix (size_t n, size_t m);
+    virtual ~Matrix ();
+    
+    // Operators Override
+
+    
     
 private:
     virtual void bananas() const;

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E2397C91BF39A5000515406 /* Vec3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E2397C81BF39A5000515406 /* Vec3.cpp */; };
 		5133EF7C1BF3921D0060B7EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5133EF7B1BF3921D0060B7EF /* main.cpp */; };
-		5133EF841BF394980060B7EF /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5133EF821BF394980060B7EF /* Matrix.cpp */; settings = {ASSET_TAGS = (); }; };
+		5133EF841BF394980060B7EF /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5133EF821BF394980060B7EF /* Matrix.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E2397C71BF39A5000515406 /* Vec3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vec3.hpp; sourceTree = "<group>"; };
+		0E2397C81BF39A5000515406 /* Vec3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec3.cpp; sourceTree = "<group>"; };
 		5133EF781BF3921D0060B7EF /* Trabalho Anal Num */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Trabalho Anal Num"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5133EF7B1BF3921D0060B7EF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5133EF821BF394980060B7EF /* Matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
@@ -61,8 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				5133EF7B1BF3921D0060B7EF /* main.cpp */,
-				5133EF821BF394980060B7EF /* Matrix.cpp */,
 				5133EF831BF394980060B7EF /* Matrix.hpp */,
+				5133EF821BF394980060B7EF /* Matrix.cpp */,
+				0E2397C71BF39A5000515406 /* Vec3.hpp */,
+				0E2397C81BF39A5000515406 /* Vec3.cpp */,
 			);
 			path = "Trabalho Anal Num";
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E2397C91BF39A5000515406 /* Vec3.cpp in Sources */,
 				5133EF841BF394980060B7EF /* Matrix.cpp in Sources */,
 				5133EF7C1BF3921D0060B7EF /* main.cpp in Sources */,
 			);
@@ -241,6 +247,7 @@
 				5133EF811BF3921D0060B7EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
