@@ -8,11 +8,27 @@
 
 #include <iostream>
 
+
+
+
 int main(int argc, const char * argv[])
 {
-   
     // insert code here...
     std::cout << "Hello, World!\n";
     std::cout << "Teste";
     return 0;
 }
+
+
+
+double* lagrange(int n, int m, double** J, double** dJ, double* w, double* f, double* v)
+{
+    
+    
+    return NULL;
+}
+
+
+
+
+
