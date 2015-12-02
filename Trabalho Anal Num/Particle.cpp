@@ -11,23 +11,32 @@
 
 Particle::Particle()
 {
-    this->position = new Vec3();
+    this->position = Vec3();
+    this->velocity = Vec3();
+    this->force = Vec3();
+    
     this->mass = 0.0;
 }
 
 Particle::Particle(double mass)
 {
-    this->position = new Vec3();
+    this->position = Vec3();
+    this->velocity = Vec3();
+    this->force = Vec3();
+    
     this->mass = mass;
 }
 
-Particle::Particle(Vec3* position, double mass)
+Particle::Particle(Vec3 position, double mass)
 {
     this->position = position;
+    this->velocity = Vec3();
+    this->force = Vec3();
+    
     this->mass = mass;
 }
 
 Particle::~Particle()
 {
-    delete this->position;
+
 }

@@ -35,14 +35,14 @@ Vec3::Vec3(double const v[3])
 
 
 // Getters & Setters
-inline void Vec3::set( double x, double y, double z)
+void Vec3::set(double x, double y, double z)
 {
     _v[0]=x;
     _v[1]=y;
     _v[2]=z;
 }
 
-inline void Vec3::set(const Vec3& rhs)
+void Vec3::set(const Vec3& rhs)
 {
     _v[0]=rhs._v[0];
     _v[1]=rhs._v[1];
@@ -51,17 +51,17 @@ inline void Vec3::set(const Vec3& rhs)
 
 
 // Operators Override
-inline bool Vec3::operator == (const Vec3& v) const
+bool Vec3::operator == (const Vec3& v) const
 {
     return (_v[0]==v._v[0]) && (_v[1]==v._v[1]) && (_v[2]==v._v[2]);
 }
 
-inline bool Vec3::operator != (const Vec3& v) const
+bool Vec3::operator != (const Vec3& v) const
 {
     return (_v[0]!=v._v[0]) || (_v[1]!=v._v[1]) || (_v[2]!=v._v[2]);
 }
 
-inline bool Vec3::operator <  (const Vec3& v) const
+bool Vec3::operator <  (const Vec3& v) const
 {
     if (_v[0]<v._v[0]) return true;
     else if (_v[0]>v._v[0]) return false;
@@ -70,34 +70,34 @@ inline bool Vec3::operator <  (const Vec3& v) const
     else return (_v[2]<v._v[2]);
 }
 
-inline double& Vec3::operator [] (int i)
+double& Vec3::operator [] (int i)
 {
     return _v[i];
 }
 
-inline double Vec3::operator [] (int i) const
+double Vec3::operator [] (int i) const
 {
     return _v[i];
 }
 
-inline double Vec3::operator * (const Vec3& rhs) const
+double Vec3::operator * (const Vec3& rhs) const
 {
     return _v[0]*rhs._v[0] + _v[1]*rhs._v[1] + _v[2]*rhs._v[2];
 }
 
-inline const Vec3 Vec3::operator ^ (const Vec3& rhs) const
+const Vec3 Vec3::operator ^ (const Vec3& rhs) const
 {
     return Vec3(_v[1]*rhs._v[2]-_v[2]*rhs._v[1],
                 _v[2]*rhs._v[0]-_v[0]*rhs._v[2],
                 _v[0]*rhs._v[1]-_v[1]*rhs._v[0]);
 }
 
-inline const Vec3 Vec3::operator * (double rhs) const
+const Vec3 Vec3::operator * (double rhs) const
 {
     return Vec3(_v[0]*rhs, _v[1]*rhs, _v[2]*rhs);
 }
 
-inline Vec3& Vec3::operator *= (double rhs)
+Vec3& Vec3::operator *= (double rhs)
 {
     _v[0]*=rhs;
     _v[1]*=rhs;
@@ -105,12 +105,12 @@ inline Vec3& Vec3::operator *= (double rhs)
     return *this;
 }
 
-inline const Vec3 Vec3::operator / (double rhs) const
+const Vec3 Vec3::operator / (double rhs) const
 {
     return Vec3(_v[0]/rhs, _v[1]/rhs, _v[2]/rhs);
 }
 
-inline Vec3& Vec3::operator /= (double rhs)
+Vec3& Vec3::operator /= (double rhs)
 {
     _v[0]/=rhs;
     _v[1]/=rhs;
@@ -118,12 +118,12 @@ inline Vec3& Vec3::operator /= (double rhs)
     return *this;
 }
 
-inline const Vec3 Vec3::operator + (const Vec3& rhs) const
+const Vec3 Vec3::operator + (const Vec3& rhs) const
 {
     return Vec3(_v[0]+rhs._v[0], _v[1]+rhs._v[1], _v[2]+rhs._v[2]);
 }
 
-inline Vec3& Vec3::operator += (const Vec3& rhs)
+Vec3& Vec3::operator += (const Vec3& rhs)
 {
     _v[0] += rhs._v[0];
     _v[1] += rhs._v[1];
@@ -131,12 +131,12 @@ inline Vec3& Vec3::operator += (const Vec3& rhs)
     return *this;
 }
 
-inline const Vec3 Vec3::operator - (const Vec3& rhs) const
+const Vec3 Vec3::operator - (const Vec3& rhs) const
 {
     return Vec3(_v[0]-rhs._v[0], _v[1]-rhs._v[1], _v[2]-rhs._v[2]);
 }
 
-inline Vec3& Vec3::operator -= (const Vec3& rhs)
+Vec3& Vec3::operator -= (const Vec3& rhs)
 {
     _v[0]-=rhs._v[0];
     _v[1]-=rhs._v[1];
@@ -144,22 +144,22 @@ inline Vec3& Vec3::operator -= (const Vec3& rhs)
     return *this;
 }
 
-inline const Vec3 Vec3::operator - () const
+const Vec3 Vec3::operator - () const
 {
     return Vec3 (-_v[0], -_v[1], -_v[2]);
 }
 
-inline double Vec3::modulus() const
+double Vec3::modulus() const
 {
     return sqrtf( _v[0]*_v[0] + _v[1]*_v[1] + _v[2]*_v[2] );
 }
 
-inline double Vec3::modulus2() const
+double Vec3::modulus2() const
 {
     return _v[0]*_v[0] + _v[1]*_v[1] + _v[2]*_v[2];
 }
 
-inline double Vec3::normalize()
+double Vec3::normalize()
 {
     double norm = Vec3::modulus();
     if (norm > 0.0)
@@ -172,7 +172,7 @@ inline double Vec3::normalize()
     return( norm );
 }
 
-inline Vec3 Vec3::normalized() const
+Vec3 Vec3::normalized() const
 {
     double norm = Vec3::modulus();
     if (norm > 0.0)
