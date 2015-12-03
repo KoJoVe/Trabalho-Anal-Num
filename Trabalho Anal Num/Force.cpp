@@ -11,6 +11,7 @@
 #include "Matrix.hpp"
 
 #include <iostream>
+#include <iomanip>
 #include <math.h>
 
 
@@ -67,8 +68,11 @@ Vec3* Force::calculateForce()
     _springForce->force(force);
     _constraintForce->force(force);
     
+
+    
     for (int i = 0; i < _particles->size(); i++) {
-        std::cout << force[i] << std::endl;
+        std::cout << std::fixed << std::setw(11) << std::setprecision(6)
+        << force[i] << std::endl;
     }
     
     return force;
