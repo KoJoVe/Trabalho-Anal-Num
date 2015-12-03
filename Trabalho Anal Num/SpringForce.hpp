@@ -9,6 +9,24 @@
 #ifndef SpringForce_hpp
 #define SpringForce_hpp
 
-#include <stdio.h>
+#include <vector>
+
+#include "Particle.hpp"
+#include "Spring.hpp"
+
+
+class SpringForce
+{
+public:
+    // Constructors & Deconstructors
+    SpringForce(const std::vector<Spring*>* springs);
+    ~SpringForce();
+    
+    // Force Methods
+    void force(Vec3* f);
+    
+private:
+    const std::vector<Spring*>* _springs;
+};
 
 #endif /* SpringForce_hpp */

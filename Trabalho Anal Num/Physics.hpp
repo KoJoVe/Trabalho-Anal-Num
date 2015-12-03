@@ -24,24 +24,28 @@
 class Physics
 {
 public:
+    // Constructors & Deconstructors
     Physics();
     ~Physics();
     
+    
+    // World Setting Methods
     void addParticle(Particle* particle);
     void addBar(int i, int j);
-    void addSpring(int i, int j, double stiffness);
-
+    void addSpring(int i, int j, double stiffness, double r);
+    void setGravity(Vec3 gravity);
     
+    // Update Methods
     void update();
-
+    
 
 private:
     double h;
     
-    Vec3 gravity;
     std::vector<Particle*>* _particles;
     std::vector<RigidBar*>* _bars;
     std::vector<Spring*>* _springs;
+    Vec3 _gravity;
     
     Force* _force;
 };

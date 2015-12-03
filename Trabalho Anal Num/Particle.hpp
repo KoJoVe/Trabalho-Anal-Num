@@ -22,13 +22,11 @@ public:
     ~Particle();
     
     
+    bool hasGravity;
+
     Vec3 position;
     Vec3 velocity;
     double mass;
-    
-    bool hasGravity;
-    
-    Vec3 force;
 
     size_t index;
 };

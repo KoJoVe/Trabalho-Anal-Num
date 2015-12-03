@@ -13,10 +13,13 @@
 
 #include "Matrix.hpp"
 
-
+// Static Methods Declaration
 static void ConjugateGradient (size_t n, double** A, double* b, double* x);
+//
 
 
+
+// Constructors & Deconstructors
 ConstraintForce::ConstraintForce(const std::vector<Particle*>* particles, const std::vector<RigidBar*>* bars)
 {
     _particles = particles;
@@ -24,9 +27,11 @@ ConstraintForce::ConstraintForce(const std::vector<Particle*>* particles, const 
     
     _lastLambda = NULL;
     _J = NULL;
-
+    
     _A = NULL;
     _b = NULL;
+    
+    this->cacheStuff();
 }
 
 ConstraintForce::~ConstraintForce()
@@ -37,14 +42,12 @@ ConstraintForce::~ConstraintForce()
     delete _A;
     delete _b;
 }
+//
 
 
-void ConstraintForce::constraintForce(Vec3* f)
+// Force Methods
+void ConstraintForce::force(Vec3* f)
 {
-    if (!_lastLambda) {
-        this->update();
-    }
-    
     const size_t pn = _particles->size()*3;
     const size_t bn = _bars->size();
     
@@ -61,6 +64,7 @@ void ConstraintForce::constraintForce(Vec3* f)
 
         const Vec3 posDif = bar->positionDiff();
         const Vec3 velDif  = bar->velocityDiff();
+        
         const double mod  = posDif.modulus();
 
         Vec3 l = posDif/mod;
@@ -82,8 +86,7 @@ void ConstraintForce::constraintForce(Vec3* f)
     }
 }
 
-
-void ConstraintForce::update()
+void ConstraintForce::cacheStuff()
 {
     delete _lastLambda;
     delete _A;
@@ -144,9 +147,11 @@ void ConstraintForce::update()
         _lastLambda[i] = 1.0;
     }
 }
+//
 
 
 
+// Static Methods Definition
 static void ConjugateGradient (size_t n, double** A, double* b, double* x)
 {
     double* dk = new double[n];
@@ -215,7 +220,7 @@ static void ConjugateGradient (size_t n, double** A, double* b, double* x)
     delete rk;
     delete dn;
 }
-
+//
 
 
 

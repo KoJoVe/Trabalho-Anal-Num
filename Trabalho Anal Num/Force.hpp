@@ -16,46 +16,40 @@
 #include "Spring.hpp"
 
 #include "ConstraintForce.hpp"
+#include "SpringForce.hpp"
 
 
 class Force
 {
 public:
+    // Constructors & Deconstructors
     Force();
     ~Force();
     
+    
+    // Getters & Setters
     void setParticles(const std::vector<Particle*>* particles);
     void setSprings(const std::vector<Spring*>* springs);
     void setBars(const std::vector<RigidBar*>* bars);
     void setGravity(const Vec3* gravity);
 
-    
+    // Force Methods
     Vec3* calculateForce();
     
     
 private:
-    ConstraintForce* _constraintForce;
-    
-    
-    
     bool _firstRun;
-    
-    
-    
-    void gravityForce(Vec3* f);
-    void springForce(Vec3* f);
-//    void constraintForce(Vec3* f);
-//    
-//    void firstRun();
     
     const Vec3* _gravity;
     const std::vector<Particle*>* _particles;
     const std::vector<Spring*>* _springs;
     const std::vector<RigidBar*>* _bars;
     
-//    double* _lastLambda;
-//    double** _A;
-//    double** _J;
+    SpringForce* _springForce;
+    ConstraintForce* _constraintForce;
+    
+    
+    void gravityForce(Vec3* f);
 };
 
 #endif /* Force_hpp */

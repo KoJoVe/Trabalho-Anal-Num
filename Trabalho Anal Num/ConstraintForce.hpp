@@ -18,18 +18,20 @@
 class ConstraintForce
 {
 public:
+    // Constructors & Deconstructors
     ConstraintForce(const std::vector<Particle*>* particles, const std::vector<RigidBar*>* bars);
     ~ConstraintForce();
     
-    void constraintForce(Vec3* f);
-    void update();
+    // Force Methods
+    void force(Vec3* f);
+    void cacheStuff(); // If the _particles or _bars vector changes, call this method!
     
 private:    
     const std::vector<Particle*>* _particles;
     const std::vector<RigidBar*>* _bars;
     
-    double* _lastLambda;
-    double* _b;
+    double*  _lastLambda;
+    double*  _b;
     double** _A;
     double** _J;
 };

@@ -68,10 +68,10 @@
 		0E4714141C10616F004FBA02 /* New Group2 */ = {
 			isa = PBXGroup;
 			children = (
-				0E47140F1C106155004FBA02 /* ConstraintForce.hpp */,
-				0E47140E1C106155004FBA02 /* ConstraintForce.cpp */,
 				0E4714121C106160004FBA02 /* SpringForce.hpp */,
 				0E4714111C106160004FBA02 /* SpringForce.cpp */,
+				0E47140F1C106155004FBA02 /* ConstraintForce.hpp */,
+				0E47140E1C106155004FBA02 /* ConstraintForce.cpp */,
 			);
 			name = "New Group2";
 			sourceTree = "<group>";

@@ -14,13 +14,21 @@
 #include <math.h>
 
 
+
+// Constructors & Deconstructors
 Force::Force()
 {
     _firstRun = true;
-    //_lastLambda = NULL;
 }
 
+Force::~Force()
+{
+    
+}
+//
 
+
+// Getters & Setters
 void Force::setParticles(const std::vector<Particle*>* particles)
 {
     _particles = particles;
@@ -40,67 +48,48 @@ void Force::setGravity(const Vec3* gravity)
 {
     _gravity = gravity;
 }
+//
 
 
+// Force Methods
 Vec3* Force::calculateForce()
 {
-    if(_firstRun) {
+    if(_firstRun)
+    {
         _firstRun = false;
-        
         _constraintForce = new ConstraintForce(_particles, _bars);
+        _springForce = new SpringForce(_springs);
     }
-    
-    
     
     Vec3* force = new Vec3[_particles->size()];
     
-//    if(!_lastLambda) {
-//        this->firstRun();
-//    }
-    
-    
-    
-    gravityForce(force);
-    force[1].x() = 50.0;
-
-    
-
-    
-    springForce(force);
-    
-//    for (int i = 0; i < _particles->size(); i++) {
-//        std::cout << force[i] << std::endl;
-//    }
-
-    
-    _constraintForce->constraintForce(force);
-    
-    //constraintForce(force);
-    
-    
+    this->gravityForce(force);
+    _springForce->force(force);
+    _constraintForce->force(force);
     
     for (int i = 0; i < _particles->size(); i++) {
         std::cout << force[i] << std::endl;
     }
-
     
     return force;
 }
+//
 
 
 
+// Private Methods
 void Force::gravityForce(Vec3* f)
 {
     const size_t count = _particles->size();
-    for (int i = 0; i < count; i++)
+    for (size_t i = 0; i < count; i++)
     {
-        f[i].set(0.0, 0.0, -100.0);
-        f[i].set(0.0, 0.0, 0.0);
-
+        const Particle* p = _particles->at(i);
+        
+        if (p->hasGravity) {
+            f[i] = (*_gravity)*p->mass;
+        }
+        else {
+            f[i].set(0.0, 0.0, 0.0);
+        }
     }
-}
-
-void Force::springForce(Vec3* f)
-{
-    
 }

@@ -16,10 +16,14 @@
 class Spring
 {
 public:
-    Spring(const Particle* particleOne, const Particle* particleTwo, double stiffness);
+    Spring(const Particle* particleOne, const Particle* particleTwo, double stiffness, double relaxedDistance);
     ~Spring();
+    Vec3 positionDiff() const;
+
     
-    double stiffness;    
+    double stiffness;
+    double relaxedDistance;
+
     const Particle* p1;
     const Particle* p2;
 };
