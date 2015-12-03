@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0E2397C91BF39A5000515406 /* Vec3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E2397C81BF39A5000515406 /* Vec3.cpp */; };
+		0E4714101C106155004FBA02 /* ConstraintForce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E47140E1C106155004FBA02 /* ConstraintForce.cpp */; };
+		0E4714131C106160004FBA02 /* SpringForce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E4714111C106160004FBA02 /* SpringForce.cpp */; };
 		0E7312CB1C0B67660001483C /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E7312C91C0B67660001483C /* Physics.cpp */; };
 		0E7312CE1C0B682A0001483C /* RigidBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E7312CC1C0B682A0001483C /* RigidBar.cpp */; };
 		0E7312D11C0B68330001483C /* Spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E7312CF1C0B68330001483C /* Spring.cpp */; };
@@ -32,6 +34,10 @@
 /* Begin PBXFileReference section */
 		0E2397C71BF39A5000515406 /* Vec3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vec3.hpp; sourceTree = "<group>"; };
 		0E2397C81BF39A5000515406 /* Vec3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec3.cpp; sourceTree = "<group>"; };
+		0E47140E1C106155004FBA02 /* ConstraintForce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConstraintForce.cpp; sourceTree = "<group>"; };
+		0E47140F1C106155004FBA02 /* ConstraintForce.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConstraintForce.hpp; sourceTree = "<group>"; };
+		0E4714111C106160004FBA02 /* SpringForce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpringForce.cpp; sourceTree = "<group>"; };
+		0E4714121C106160004FBA02 /* SpringForce.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SpringForce.hpp; sourceTree = "<group>"; };
 		0E7312C91C0B67660001483C /* Physics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Physics.cpp; sourceTree = "<group>"; };
 		0E7312CA1C0B67660001483C /* Physics.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Physics.hpp; sourceTree = "<group>"; };
 		0E7312CC1C0B682A0001483C /* RigidBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RigidBar.cpp; sourceTree = "<group>"; };
@@ -59,6 +65,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E4714141C10616F004FBA02 /* New Group2 */ = {
+			isa = PBXGroup;
+			children = (
+				0E47140F1C106155004FBA02 /* ConstraintForce.hpp */,
+				0E47140E1C106155004FBA02 /* ConstraintForce.cpp */,
+				0E4714121C106160004FBA02 /* SpringForce.hpp */,
+				0E4714111C106160004FBA02 /* SpringForce.cpp */,
+			);
+			name = "New Group2";
+			sourceTree = "<group>";
+		};
 		0E7312D21C0B68430001483C /* New Group */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +125,7 @@
 				0E7312C91C0B67660001483C /* Physics.cpp */,
 				0EFB15B11C0A3EC600FDE80F /* Force.hpp */,
 				0EFB15B01C0A3EC600FDE80F /* Force.cpp */,
+				0E4714141C10616F004FBA02 /* New Group2 */,
 				0E7312D31C0B69400001483C /* New Group1 */,
 			);
 			path = "Trabalho Anal Num";
@@ -169,8 +187,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E4714131C106160004FBA02 /* SpringForce.cpp in Sources */,
 				0E7312D61C0B90510001483C /* Matrix.cpp in Sources */,
 				0E2397C91BF39A5000515406 /* Vec3.cpp in Sources */,
+				0E4714101C106155004FBA02 /* ConstraintForce.cpp in Sources */,
 				0E7312CE1C0B682A0001483C /* RigidBar.cpp in Sources */,
 				0EFB15B21C0A3EC600FDE80F /* Force.cpp in Sources */,
 				0E7312D11C0B68330001483C /* Spring.cpp in Sources */,

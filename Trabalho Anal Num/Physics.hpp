@@ -38,7 +38,7 @@ public:
 private:
     double h;
     
-    double gravity;
+    Vec3 gravity;
     std::vector<Particle*>* _particles;
     std::vector<RigidBar*>* _bars;
     std::vector<Spring*>* _springs;

@@ -16,12 +16,12 @@ RigidBar::RigidBar(const Particle* particleOne, const Particle* particleTwo)
 }
 
 
-Vec3 RigidBar::positionDiff()
+Vec3 RigidBar::positionDiff() const
 {
     return p1->position - p2->position;
 }
 
-Vec3 RigidBar::velocityDiff()
+Vec3 RigidBar::velocityDiff() const
 {
     return p1->velocity - p2->velocity;
 }

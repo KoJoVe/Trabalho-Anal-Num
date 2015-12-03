@@ -34,7 +34,7 @@ int main(int argc, const char * argv[])
     
     Physics* phys = new Physics();
     
-    Particle* p0 = new Particle(Vec3(2.0, .0, .0), 10);
+    Particle* p0 = new Particle(Vec3(1.0, .0, .0), 10);
     Particle* p1 = new Particle(Vec3(.0, .0, .0), 10);
     Particle* p2 = new Particle(Vec3(-1.0, .0, .0), 10);
 //    Particle* p3 = new Particle(Vec3(3.0, .0, 0.0), 10);

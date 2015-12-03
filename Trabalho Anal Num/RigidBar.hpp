@@ -20,8 +20,8 @@ public:
     ~RigidBar();
     
     
-    Vec3 positionDiff();
-    Vec3 velocityDiff();
+    Vec3 positionDiff() const;
+    Vec3 velocityDiff() const;
     
     const Particle* p1;
     const Particle* p2;
