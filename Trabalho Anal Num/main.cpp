@@ -42,8 +42,7 @@ int main(int argc, const char * argv[])
     p0->velocity = Vec3(2.0, .0, .0);
     p1->velocity = Vec3(2.0, .0, .0);
     p2->velocity = Vec3(2.0, .0, .0);
-
-    p3->velocity = Vec3(3.0, .0, .0);
+    p3->velocity = Vec3(2.0, .0, .0);
     
     
     phys->addParticle(p0);
@@ -55,8 +54,14 @@ int main(int argc, const char * argv[])
     phys->addBar(1, 2);
     phys->addBar(1, 3);
     
-    phys->update();
     
+    phys->printaParticula();
+
+    for (int i = 0; i < 1000000; i++) {
+        phys->update();
+    }
+    phys->printaParticula();
+
     
     return 0;
 }

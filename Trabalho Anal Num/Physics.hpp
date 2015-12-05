@@ -38,9 +38,11 @@ public:
     // Update Methods
     void update();
     
+    
+    void printaParticula();
 
 private:
-    double h;
+    double _h;
     
     std::vector<Particle*>* _particles;
     std::vector<RigidBar*>* _bars;

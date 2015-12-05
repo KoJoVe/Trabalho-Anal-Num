@@ -26,7 +26,7 @@ public:
 
     Vec3 position;
     Vec3 velocity;
-    double mass;
+    double w;
 
     size_t index;
 };

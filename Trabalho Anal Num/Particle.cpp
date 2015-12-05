@@ -14,7 +14,7 @@ Particle::Particle()
     this->position = Vec3();
     this->velocity = Vec3();
     
-    this->mass = 0.0;
+    this->w = 0.0;
     this->hasGravity = true;
 }
 
@@ -23,7 +23,7 @@ Particle::Particle(double mass)
     this->position = Vec3();
     this->velocity = Vec3();
     
-    this->mass = mass;
+    this->w = 1/mass;
     this->hasGravity = true;
 }
 
@@ -32,7 +32,7 @@ Particle::Particle(Vec3 position, double mass)
     this->position = position;
     this->velocity = Vec3();
     
-    this->mass = mass;
+    this->w = 1/mass;
     this->hasGravity = true;
 }
 

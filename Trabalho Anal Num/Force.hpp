@@ -34,7 +34,7 @@ public:
     void setGravity(const Vec3* gravity);
 
     // Force Methods
-    Vec3* calculateForce();
+    Vec3* calculateForce(Vec3* positionOffset, Vec3* velocityOffset);
     
     
 private:

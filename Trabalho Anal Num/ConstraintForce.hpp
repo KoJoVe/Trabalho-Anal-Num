@@ -23,8 +23,8 @@ public:
     ~ConstraintForce();
     
     // Force Methods
-    void force(Vec3* f);
-    void cacheStuff(); // If the _particles or _bars vector changes, call this method!
+    void force(Vec3* f, Vec3* velOffset);
+    void cacheStuff(); // If the _particles or _bars vector changes size, call this method!
     
 private:    
     const std::vector<Particle*>* _particles;

@@ -22,7 +22,7 @@ SpringForce::~SpringForce()
 
 
 // Force Methods
-void SpringForce::force(Vec3* f)
+void SpringForce::force(Vec3* f, Vec3* posOffset)
 {
     const size_t sn = _springs->size();
     
@@ -36,7 +36,7 @@ void SpringForce::force(Vec3* f)
         const double k = spring->stiffness;
         const double r = spring->relaxedDistance;
         
-        const Vec3 d = spring->positionDiff();
+        const Vec3 d = spring->positionDiff() + posOffset[i2] - posOffset[i1];
         
         const double mod = d.modulus();
         const Vec3 dn = d/mod;

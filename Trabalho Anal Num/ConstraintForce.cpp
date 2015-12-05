@@ -46,31 +46,40 @@ ConstraintForce::~ConstraintForce()
 
 
 // Force Methods
-void ConstraintForce::force(Vec3* f)
+void ConstraintForce::force(Vec3* f, Vec3* velOffset)
 {
     const size_t pn = _particles->size()*3;
     const size_t bn = _bars->size();
     
-
     for (size_t i = 0; i < bn; i++)
     {
         const RigidBar* bar = _bars->at(i);
         
         const size_t i1 = bar->p1->index;
         const size_t i2 = bar->p2->index;
+        const size_t i1t3 = i1*3;
+        const size_t i2t3 = i2*3;
         
-        const double mass1 = bar->p1->mass;
-        const double mass2 = bar->p2->mass;
+        const double w1 = bar->p1->w;
+        const double w2 = bar->p2->w;
 
         const Vec3 posDif = bar->positionDiff();
-        const Vec3 velDif  = bar->velocityDiff();
+        const Vec3 velDif = bar->velocityDiff();
         
         const double mod  = posDif.modulus();
 
         Vec3 l = posDif/mod;
         Vec3 dl = (velDif - l*(l*velDif))/mod;
 
-        _b[i] = l*(f[i2]/mass2 - f[i1]/mass1) - dl*(velDif);
+        _b[i] = l*(f[i2]*w2 - f[i1]*w1) - dl*(velDif);
+        
+        _J[i][i1t3  ] = l.x();
+        _J[i][i1t3+1] = l.y();
+        _J[i][i1t3+2] = l.z();
+        
+        _J[i][i2t3  ] = -l.x();
+        _J[i][i2t3+1] = -l.y();
+        _J[i][i2t3+2] = -l.z();
     }
     
     ConjugateGradient(bn, _A, _b, _lastLambda);
@@ -131,11 +140,11 @@ void ConstraintForce::cacheStuff()
 
             for (size_t k = 0, k_3 = 0; k < pn; k+=3, k_3++)
             {
-                const double mass = _particles->at(k_3)->mass;
+                const double w = _particles->at(k_3)->w;
                 
-                Aij += Jj[k  ]*Ji[k  ]/mass;
-                Aij += Jj[k+1]*Ji[k+1]/mass;
-                Aij += Jj[k+2]*Ji[k+2]/mass;
+                Aij += Jj[k  ]*Ji[k  ]*w;
+                Aij += Jj[k+1]*Ji[k+1]*w;
+                Aij += Jj[k+2]*Ji[k+2]*w;
             }
         }
     }

@@ -53,7 +53,7 @@ void Force::setGravity(const Vec3* gravity)
 
 
 // Force Methods
-Vec3* Force::calculateForce()
+Vec3* Force::calculateForce(Vec3* positionOffset, Vec3* velocityOffset)
 {
     if(_firstRun)
     {
@@ -62,18 +62,20 @@ Vec3* Force::calculateForce()
         _springForce = new SpringForce(_springs);
     }
     
+
+    
     Vec3* force = new Vec3[_particles->size()];
     
     this->gravityForce(force);
-    _springForce->force(force);
-    _constraintForce->force(force);
+    _springForce->force(force, positionOffset);
+    _constraintForce->force(force, velocityOffset);
     
 
     
-    for (int i = 0; i < _particles->size(); i++) {
-        std::cout << std::fixed << std::setw(11) << std::setprecision(6)
-        << force[i] << std::endl;
-    }
+//    for (int i = 0; i < _particles->size(); i++) {
+//        std::cout << std::fixed << std::setw(11) << std::setprecision(6)
+//        << force[i] << std::endl;
+//    }
     
     return force;
 }
@@ -90,7 +92,7 @@ void Force::gravityForce(Vec3* f)
         const Particle* p = _particles->at(i);
         
         if (p->hasGravity) {
-            f[i] = (*_gravity)*p->mass;
+            f[i] = (*_gravity)/p->w;
         }
         else {
             f[i].set(0.0, 0.0, 0.0);

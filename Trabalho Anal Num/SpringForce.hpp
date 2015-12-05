@@ -23,7 +23,7 @@ public:
     ~SpringForce();
     
     // Force Methods
-    void force(Vec3* f);
+    void force(Vec3* f, Vec3* posOffset);
     
 private:
     const std::vector<Spring*>* _springs;
